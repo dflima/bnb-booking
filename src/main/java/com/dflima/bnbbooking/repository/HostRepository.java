@@ -2,7 +2,7 @@ package com.dflima.bnbbooking.repository;
 
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.dflima.bnbbooking.entity.Guest;
+import com.dflima.bnbbooking.entity.Host;
 
-public interface GuestRepository extends JpaRepository<Guest, UUID> {
+public interface HostRepository extends JpaRepository<Host, UUID> {
 }
