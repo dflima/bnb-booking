@@ -21,17 +21,17 @@ public class Block {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
-    private long id;
+    public long id;
 
     @Column(nullable = false)
     @Temporal(value = TemporalType.DATE)
     @Getter
     @Setter
-    private Date startDate;
+    public Date startDate;
 
     @Column(nullable = false)
     @Temporal(value = TemporalType.DATE)
     @Getter
     @Setter
-    private Date endDate;
+    public Date endDate;
 }

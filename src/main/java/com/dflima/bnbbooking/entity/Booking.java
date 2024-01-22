@@ -21,22 +21,22 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
-    private long id;
+    public long id;
 
     @Column(nullable = false)
     @Getter
     @Setter
-    private String code;
-
-    @Column(nullable = false)
-    @Temporal(value = TemporalType.DATE)
-    @Getter
-    @Setter
-    private Date startDate;
+    public String code;
 
     @Column(nullable = false)
     @Temporal(value = TemporalType.DATE)
     @Getter
     @Setter
-    private Date endDate;
+    public Date startDate;
+
+    @Column(nullable = false)
+    @Temporal(value = TemporalType.DATE)
+    @Getter
+    @Setter
+    public Date endDate;
 }
