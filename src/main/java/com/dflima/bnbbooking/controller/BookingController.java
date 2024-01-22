@@ -26,12 +26,12 @@ public class BookingController {
 
     @GetMapping("/booking/{code}")
     public Booking getBooking(@PathVariable(value = "code") String code) {
-        return this.repository.findOneByBookingCode(code)
-            .orElseThrow(() -> new BookingNotFoundException(code));
+        return this.repository.findOneByCode(code)
+                .orElseThrow(() -> new BookingNotFoundException(code));
     }
 
     @DeleteMapping("/booking/{code}")
     public void deleteBooking(@PathVariable(value = "code") String code) {
-        this.repository.deleteByBookingCode(code);
+        this.repository.deleteByCode(code);
     }
 }

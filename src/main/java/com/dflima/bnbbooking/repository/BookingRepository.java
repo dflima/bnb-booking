@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.dflima.bnbbooking.entity.Booking;
 
 public interface BookingRepository extends JpaRepository<Booking, Long> {
-    Optional<Booking> findOneByBookingCode(String code);
-    void deleteByBookingCode(String code);
+    Optional<Booking> findOneByCode(String code);
+
+    void deleteByCode(String code);
 }
