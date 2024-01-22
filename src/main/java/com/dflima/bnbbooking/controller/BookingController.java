@@ -8,30 +8,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dflima.bnbbooking.entity.Booking;
-import com.dflima.bnbbooking.exception.BookingNotFoundException;
-import com.dflima.bnbbooking.repository.BookingRepository;
+import com.dflima.bnbbooking.service.BookingService;
 
 @RestController
 public class BookingController {
-    private final BookingRepository repository;
+    private final BookingService service;
 
-    BookingController(BookingRepository repository) {
-        this.repository = repository;
+    BookingController(BookingService service) {
+        this.service = service;
     }
 
-    @GetMapping("/booking")
+    @GetMapping("/bookings")
     public List<Booking> getAll() {
-        return this.repository.findAll();
+        return this.service.findAll();
     }
 
-    @GetMapping("/booking/{code}")
+    @GetMapping("/bookings/{code}")
     public Booking getBooking(@PathVariable(value = "code") String code) {
-        return this.repository.findOneByCode(code)
-                .orElseThrow(() -> new BookingNotFoundException(code));
+        return this.service.getOneBookingByCode(code);
     }
 
-    @DeleteMapping("/booking/{code}")
+    @DeleteMapping("/bookings/{code}")
     public void deleteBooking(@PathVariable(value = "code") String code) {
-        this.repository.deleteByCode(code);
+        this.service.deleteBooking(code);
     }
 }
