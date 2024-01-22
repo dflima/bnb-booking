@@ -12,6 +12,5 @@ public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
-    @Setter
     private long id;
 }
