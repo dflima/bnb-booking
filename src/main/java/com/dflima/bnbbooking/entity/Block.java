@@ -1,7 +1,7 @@
 package com.dflima.bnbbooking.entity;
 
 import java.util.Date;
-
+import java.util.UUID;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,9 +19,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Block {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Getter
-    public long id;
+    public UUID id;
 
     @Column(nullable = false)
     @Temporal(value = TemporalType.DATE)

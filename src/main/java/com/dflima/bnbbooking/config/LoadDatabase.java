@@ -2,7 +2,7 @@ package com.dflima.bnbbooking.config;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
+import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -19,10 +19,10 @@ public class LoadDatabase {
     @Bean
     public CommandLineRunner initDatabase(BookingRepository repository) {
         return args -> {
-            logger.info("Preloading " + repository.save(new Booking(1L, "ABC123",
+            logger.info("Preloading " + repository.save(new Booking(UUID.randomUUID(), "ABC123",
                     new GregorianCalendar(2024, Calendar.FEBRUARY, 11).getTime(),
                     new GregorianCalendar(2024, Calendar.FEBRUARY, 19).getTime())));
-            logger.info("Preloading " + repository.save(new Booking(2L, "ZYX456",
+            logger.info("Preloading " + repository.save(new Booking(UUID.randomUUID(), "ZYX456",
                     new GregorianCalendar(2024, Calendar.APRIL, 11).getTime(),
                     new GregorianCalendar(2024, Calendar.APRIL, 19).getTime())));
         };
